@@ -28,21 +28,26 @@
         </a>
      </div>
      <div style="margin-left:25%;">
-     <div class="content">
-        <h1>[Topic Here]</h1>
-        <h3>[Lesson Text]</h3>
-        <h3>Rate lesson</h3>
-        <a>
-            <button type="button">Ask for Clarification</button>
-        </a>
-        <a>
-            <button type="button">Mark as Confusing</button>
-        </a>
-        <a>
-            <button type="button">Understood</button>
-        </a>
+    <!-- Chat Content -->
+     <div class="chat-container">
+        <div class="chat-header">
+            <h1>[Topic Here]</h1>
+        </div>
+        
+        <!-- Chat Messages -->
+            <div class="chat-messages">
+                <div class="message ai">Hello! Today’s lesson is data structures.</div>
+                <div class="message user">Sure, go ahead!</div>
+            </div>
 
-     </div>
+            <!-- Chat Input -->
+            <div class="chat-input">
+                <input type="text" placeholder="Type your question here..." />
+                
+                <button type="button">Send</button>
+            </div>
+    </div>
+
      </div>
     
 </body>
