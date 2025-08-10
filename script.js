@@ -61,7 +61,7 @@ async function startLesson(unit) {
     });
     const data = await res.json();
     if (topicEl)  topicEl.textContent  = data.title || TITLES[unit] || "Lesson";
-    if (lessonEl) lessonEl.textContent = data.lesson || "";
+    if (lessonEl) lessonEl.innerHTML = formatLesson(data.lesson || "");
     addMessage("👋 Lesson posted above. Ask me anything about it.", "ai");
   } catch {
     if (lessonEl) lessonEl.textContent = "Could not load the lesson.";
@@ -75,4 +75,32 @@ function addMessage(text, sender) {
   el.textContent = text;
   chat.appendChild(el);
   chat.scrollTop = chat.scrollHeight;
+}
+
+function formatLesson(raw) {
+    // escape HTML
+    const esc = (s) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    const lines = (raw || "").split(/\r?\n/);
+
+    let html = [];
+    let inList = false;
+
+    for (let line of lines) {
+      line = line.trim();
+      if (!line) { continue; }
+
+      // bold text
+      const withBold = esc(line).replace(/**(.+?)**/g, "<strong>$1</strong>");
+
+      if (line.startsWith("* ")) {
+        if (!inList) { html.push("<ul>"); inList = true; }
+        html.push(<li>${withBold.slice(2)}</li>);
+      } else {
+        if (inList) { html.push("</ul>"); inList = false; }
+        html.push(<p>${withBold}</p>);
+      }
+    }
+    if (inList) html.push("</ul>");
+
+    return html.join("");
 }
