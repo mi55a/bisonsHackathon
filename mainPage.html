@@ -46,7 +46,7 @@
             <div class="new_button">
               <img src="Sprites/Book Icon.png" alt="">
             
-                <button class="nav_button" type="button">Pick Lesson</button>
+                <button class="nav_button" id="pick_lesson" type="button">Pick Lesson</button>
               </div>
 
           </a>
@@ -72,6 +72,18 @@
       
   </div>
 
+  <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <button id="unit_one" >Unit 1 - What is AI?</button>
+        <button id="unit_two" >Unit 2 - Using Basic LLMS and making API Calls </button>
+    </div>
+
+    </div>
+
   <script>
     const u = localStorage.getItem('profai_username');
     if (!u) location.href = 'login.html';
@@ -90,6 +102,55 @@
       document.getElementById("nav_container").style.marginLeft= "0";
       document.getElementById("open_side").style.marginLeft= "-1450px";
     }
+
+   
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("pick_lesson");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    //Store value in variable for database. 
+
+    var selection;
+
+    var unit_one= document.getElementById("unit_one");
+    var unit_one= document.getElementById("unit_two");
+
+    unit_one.addEventListener('click', function() {
+        selection=1
+        console.log(selection);
+    });
+
+    unit_two.addEventListener('click', function() {
+        // Code to execute when the button is clicked
+        selection=2
+        console.log(selection);
+    });
+
+
+
+
   </script>
 </body>
 </html>
