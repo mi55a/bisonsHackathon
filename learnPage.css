@@ -1,40 +1,121 @@
 body {
-    margin: 0;
-}
-.learn-sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color:#696565;
-    padding-top: 30px;
-    z-index: 10;
-    transition: 0.5s;
-}
-.learn-sidebar a {
     text-align: center;
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    display: block;
-    transition: 0.3s;
-}
-.learn-sidebar a:hover {
-    color: #696565
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url("https://coolbackgrounds.imgix.net/39sOStld2OCyNn3HmCpqco/21d339122a7cb417c83e6ebdc347ea5c/sea-edge-79ab30e2.png?w=3840&q=60&auto=format,compress");
+    background-repeat: no-repeat;
+    background-size: cover ;
 }
 
-.content {
-    margin-left: 0;
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+.username{
     font-size: 25px;
 
 }
-h3 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    text-align: center;
+
+body a {
+    padding-bottom: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: transform 0.4s ease-in-out; 
+    padding-inline: 10px;
+
+}
+
+body a:hover{
+    color: white;
+    transform: scale(1.05);
+
+}
+
+
+
+#learn-sidebar{
+    height: 100%;
+    width: 0px;
+    top: 0;
+    left: 0;
+    overflow-x:hidden ;
+    background-color: #87148B;
+    position: fixed; 
+    z-index: 1;
+    transition: 0.5s;
+    
+    
+}
+
+#nav_container{
+    transition: 0.5s;
+    
+    
+}
+
+#open_side{
+    left: 0;
+    background: none;
+    font-size: 30px;
+    border: none;
+    margin-left: -1450px;
+    transition: transform 0.4s ease-in-out; 
+    transition: 0.5s;
+
+    
+}
+
+#open_side:focus{
+    transform: rotate(90deg);
+    
+    
+}
+
+#close_window{
+    margin-left: 200px;
+    font-size: 20px;
+    margin-top: 10px;
+    transition: transform 0.4s ease-in-out; 
+
+}
+
+#close_window:hover {
+    color:white;
+    transform: scale(1.05);
+    
+    
+}
+
+.options{
+    display: flex;
+    
+    margin-inline: 39%;
+    
+}
+.format{
+    margin-top: 200px;
+
+}
+
+.new_button{
+    display: flex;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3)
+
+    
+}
+
+.nav_button{
+    color: white;
+    background: none;
+    border: none;
+    width: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.new_button:hover{
+    transform: scale(1.05);
+    background: #4C94DF;
+    background: linear-gradient(90deg,rgba(76, 148, 223, 1) 0%, rgba(135, 20, 139, 1) 91%);
+    
 }

@@ -45,6 +45,7 @@ body a:hover{
 }
 
 #nav_container{
+    transition: 0.5s;
     
     
 }
@@ -85,7 +86,8 @@ body a:hover{
 .options{
     display: flex;
     
-    margin-inline: 35%;
+    margin-inline: 39%;
+    
 }
 .format{
     margin-top: 200px;
@@ -97,6 +99,7 @@ body a:hover{
     background-color: black;
     padding: 10px;
     border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3)
 
     
 }
@@ -105,11 +108,14 @@ body a:hover{
     color: white;
     background: none;
     border: none;
-    width: 70px;
+    width: 100px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
 }
 
-.nav_button:hover{
-    font: black;
+.new_button:hover{
     transform: scale(1.05);
+    background: #4C94DF;
+    background: linear-gradient(90deg,rgba(76, 148, 223, 1) 0%, rgba(135, 20, 139, 1) 91%);
+    
 }

@@ -9,25 +9,27 @@
 <body>
 
     <!-- Sidebar -->
-     <div class="learn-sidebar" style="width: 25%;">
-        <h3 class="username">Welcome back, [Username]!</h3>
-        <a>
-            <button type="button">Notes</button>
-        </a>
-        <a>
-            <button type="button">Practice</button>
-        </a>
-        <a>
-            <button type="button">Profile</button>
-        </a>
-        <a>
-            <button type="button">Save Lesson</button>
-        </a>
-        <a href="mainPage.html">
-            <button type="button">Go Back</button>
-        </a>
+     <div id="learn-sidebar" >
+        <div id="close_window" onclick="closeNav()">X</div>
+        
+        <h3 class="username">Navigation</h3>
+          <a>Notes</a>
+          <a>Practice</a>
+          <a>Profile</a>
+        <a href="mainPage.html" >Logout</a>
      </div>
+
+     <div >
+
+      <button id="open_side" onclick="openNav()">☰</button>
+
+    </div>
+
+
      <!-- Main Content Area -->
+    <div id="nav_container">
+
+
      <div style="margin-left:25%;">
      <div class="content">
         <h1>[Topic Here]</h1>
@@ -49,10 +51,29 @@
             <button id="sendBtn">Send</button>
         </div>
 
-     </div>
-     </div>
+        </div>
+        </div>
+    </div>
 
-     <script src="script.js"></script>
+    <script>
+    const u = localStorage.getItem('profai_username');
+    if (!u) location.href = 'login.html';
+    else document.getElementById('username').textContent = u;
+
+    // Side bar nigation 
+    function openNav() {
+      document.getElementById("learn-sidebar").style.width = "250px";
+      document.getElementById("nav_container").style.marginLeft = "250px";
+      document.getElementById("open_side").style.marginLeft= "-950px";
+
+    }
+
+    function closeNav() {
+      document.getElementById("learn-sidebar").style.width = "0";
+      document.getElementById("nav_container").style.marginLeft= "0";
+      document.getElementById("open_side").style.marginLeft= "-1450px";
+    }
+  </script>
     
 </body>
 </html>
