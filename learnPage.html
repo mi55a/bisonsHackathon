@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson Page</title>
+    <title>ProfAI Chat Page</title>
     <link rel="stylesheet" href="learnPage.css">
 </head>
 <body>
@@ -27,6 +27,7 @@
             <button type="button">Go Back</button>
         </a>
      </div>
+     <!-- Main Content Area -->
      <div style="margin-left:25%;">
      <div class="content">
         <h1>[Topic Here]</h1>
@@ -42,8 +43,16 @@
             <button type="button">Understood</button>
         </a>
 
+        <div id="chatMessages" class="chat-messages"></div>
+        <div id="chatInput" class="chat-input">
+            <input type="text" id="userInput" placeholder="Ask ProfAI something..." />
+            <button id="sendBtn">Send</button>
+        </div>
+
      </div>
      </div>
+
+     <script src="script.js"></script>
     
 </body>
 </html>
