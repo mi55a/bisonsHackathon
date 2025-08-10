@@ -2,30 +2,10 @@ body {
     text-align: center;
 }
 body a {
-    padding: 10px 10px 10px 32px;
+    padding: 8px 8px 8px 32px;
+    
     text-decoration: none;
     font-size: 25px;
     color: white;
     display: block;
-}
-.prof-image {
-    text-align: center;
-}
-img {
-    display: block;
-    margin: 0 auto;
-    height: 200px;
-    width: 200px;
-}
-.options {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-button {
-    width: 80px;
-    height: 50px;
-    background-color: blueviolet;
-    color: white;
-    border-radius: 4px;
 }

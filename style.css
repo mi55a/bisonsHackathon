@@ -2,27 +2,9 @@ body {
     text-align: center;
 }
 body a {
-    padding: 10px 10px 10px 32px;
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
     color: white;
     display: block;
-}
-button {
-    width: 80px;
-    height: 50px;
-    background-color: blueviolet;
-    color: white;
-    border-radius: 4px;
-}
-h1 {
-    font-size: 50px;
-}
-h2 {
-    font-size: 40px;
-}
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
 }

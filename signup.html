@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up • ProfAI</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .auth-card{max-width:520px;margin:48px auto;padding:24px;border:1px solid #e5e7eb;border-radius:12px}
+    .brand{font-size:28px;font-weight:700;text-align:center;margin:0 0 4px}
+    .sub{font-size:16px;color:#4b5563;text-align:center;margin:0 0 16px}
+    .auth-row{margin-bottom:12px;text-align:left}
+    .auth-row label{display:block;margin:0 0 6px;font-size:14px}
+    .auth-input{width:100%;padding:12px 14px;font-size:16px;border:1px solid #cbd5e1;border-radius:10px;box-sizing:border-box}
+    .btn{width:100%;padding:12px 14px;font-size:16px;border-radius:10px;border:1px solid #111;cursor:pointer;display:block;text-align:center;box-sizing:border-box}
+    .btn-primary{background:#111;color:#fff}
+    .auth-actions{display:grid;gap:16px;margin-top:4px}
+    .msg{margin-top:8px;font-size:14px;color:#b00020}
+  </style>
+</head>
+<body>
+  <div class="auth-card">
+    <div class="brand">ProfAI</div>
+    <div class="sub">Create your account</div>
+
+    <div class="auth-actions">
+      <form id="signupForm" action="#" method="post">
+        <div class="auth-row">
+          <label for="username">Username</label>
+          <input class="auth-input" id="username" name="username" type="text" required minlength="3" autocomplete="username"/>
+        </div>
+        <div class="auth-row">
+          <label for="password">Password</label>
+          <input class="auth-input" id="password" name="password" type="password" required minlength="6" autocomplete="new-password"/>
+        </div>
+        <div class="auth-row">
+          <label for="confirm">Confirm Password</label>
+          <input class="auth-input" id="confirm" name="confirm" type="password" required minlength="6" autocomplete="new-password"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Create Account</button>
+        <div id="signupMsg" class="msg" aria-live="polite"></div>
+      </form>
+
+      <button class="btn btn-primary" type="button" onclick="location.href='login.html'">Log In</button>
+    </div>
+  </div>
+
+  <script>
+    const API = 'http://localhost:4000';
+
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('signupMsg');
+      msg.textContent = '';
+      const username = e.target.username.value.trim();
+      const password = e.target.password.value;
+      const confirm  = e.target.confirm.value;
+
+      if (password !== confirm) {
+        msg.textContent = 'Passwords do not match.';
+        return;
+      }
+
+      try {
+        const res = await fetch(API + '/api/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.message || 'Sign up failed');
+        // success → go to login
+        location.href = 'login.html';
+      } catch (err) {
+        msg.textContent = err.message;
+      }
+    });
+  </script>
+</body>
+</html>
