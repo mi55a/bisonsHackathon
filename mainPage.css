@@ -29,24 +29,6 @@ body a:hover{
 }
 
 
-.nav_button{
-    background-color: black;
-    color: white;
-    padding: 10px;
-    width: auto;
-    border: 0px ;
-    border-radius: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-inline: 70px;
-    transition: transform 0.4s ease-in-out; 
-
-}
-
-.nav_button:hover{
-    background-color: #87148B;
-    font: black;
-    transform: scale(1.05);
-}
 
 #learn-sidebar{
     height: 100%;
@@ -106,4 +88,26 @@ body a:hover{
 .format{
     margin-top: 200px;
 
+}
+
+.new_button{
+    display: flex;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+
+    
+}
+
+.nav_button{
+    color: white;
+    background: none;
+    border: none;
+    width: 70px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.nav_button:hover{
+    font: black;
+    transform: scale(1.05);
 }
