@@ -1,42 +1,78 @@
-document.getElementById("sendBtn").addEventListener("click", sendMessage);
-document.getElementById("userInput").addEventListener("keypress", function (e) {
-    if (e.key === "Enter") sendMessage();
+// script.js — activate API only on Send, curriculum-aware
+const API  = "http://127.0.0.1:5055";   // change if you run Flask on another port
+const UNIT = "u1";                      // "u1" = Unit 1, "u2" = Unit 2
+
+const TITLES = {
+  u1: "Unit 1: What is AI?",
+  u2: "Unit 2: Using Basic LLMs & API Calls",
+};
+
+let lessonLoaded = false;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const u = localStorage.getItem("profai_username");
+  if (!u) { location.href = "login.html"; return; }
+  const nameEl = document.querySelector(".learn-sidebar .username");
+  if (nameEl) nameEl.textContent = `Welcome back, ${u}!`;
+
+  document.getElementById("sendBtn").addEventListener("click", onSend);
+  document.getElementById("userInput").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") { e.preventDefault(); onSend(); }
+  });
 });
 
+async function onSend() {
+  const input = document.getElementById("userInput");
+  const text  = input.value.trim();
 
-async function sendMessage() {
-    const inputField = document.getElementById("userInput");
-    const message = inputField.value.trim();
-    if (!message) return;
+  // First click: start the lesson (even with empty input)
+  if (!lessonLoaded) {
+    await startLesson(UNIT);
+    lessonLoaded = true;
+    if (!text) return;
+  }
 
-    // Add user message to chat
-    addMessage(message, "user");
-    inputField.value = "";
+  // Chat
+  if (!text) return;
+  addMessage(text, "user");
+  input.value = "";
 
-    try {
-        const res = await fetch("http://127.0.0.1:5000/chat", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ message })
-        });
+  try {
+    const res  = await fetch(`${API}/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ unit: UNIT, message: text })
+    });
+    const data = await res.json();
+    addMessage(data.reply || "…", "ai");
+  } catch {
+    addMessage("Can't connect to AI", "ai");
+  }
+}
 
-        const data = await res.json();
-        addMessage(data.reply, "ai");
-    } catch (err) {
-        console.error("Error talking to ProfAI:", err);
-        addMessage("Can't connect to AI", "ai");
-    }
+async function startLesson(unit) {
+  const topicEl  = document.querySelector(".content h1");  // [Topic Here]
+  const lessonEl = document.querySelector(".content h3");  // [Lesson Text]
+  try {
+    const res  = await fetch(`${API}/lesson/start`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ unit })
+    });
+    const data = await res.json();
+    if (topicEl)  topicEl.textContent  = data.title || TITLES[unit] || "Lesson";
+    if (lessonEl) lessonEl.textContent = data.lesson || "";
+    addMessage("👋 Lesson posted above. Ask me anything about it.", "ai");
+  } catch {
+    if (lessonEl) lessonEl.textContent = "Could not load the lesson.";
+  }
 }
 
 function addMessage(text, sender) {
-    const chatMessages = document.getElementById("chatMessages");
-    const messageEl = document.createElement("div");
-    messageEl.classList.add("message", sender);
-    messageEl.textContent = text;
-    chatMessages.appendChild(messageEl);
-
-    // Auto-scroll to bottom
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+  const chat = document.getElementById("chatMessages");
+  const el   = document.createElement("div");
+  el.classList.add("message", sender); // style via CSS
+  el.textContent = text;
+  chat.appendChild(el);
+  chat.scrollTop = chat.scrollHeight;
 }
