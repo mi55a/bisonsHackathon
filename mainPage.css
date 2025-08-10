@@ -1,11 +1,109 @@
 body {
     text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url("https://coolbackgrounds.imgix.net/39sOStld2OCyNn3HmCpqco/21d339122a7cb417c83e6ebdc347ea5c/sea-edge-79ab30e2.png?w=3840&q=60&auto=format,compress");
+    background-repeat: no-repeat;
+    background-size: cover ;
 }
-body a {
-    padding: 8px 8px 8px 32px;
-    
-    text-decoration: none;
+
+.username{
     font-size: 25px;
-    color: white;
+
+}
+
+body a {
+    padding-bottom: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
     display: block;
+    transition: transform 0.4s ease-in-out; 
+    padding-inline: 10px;
+
+}
+
+body a:hover{
+    color: white;
+    transform: scale(1.05);
+
+}
+
+
+.nav_button{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: auto;
+    border: 0px ;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-inline: 70px;
+    transition: transform 0.4s ease-in-out; 
+
+}
+
+.nav_button:hover{
+    background-color: #87148B;
+    font: black;
+    transform: scale(1.05);
+}
+
+#learn-sidebar{
+    height: 100%;
+    width: 0px;
+    top: 0;
+    left: 0;
+    overflow-x:hidden ;
+    background-color: #87148B;
+    position: fixed; 
+    z-index: 1;
+    
+    
+}
+
+#nav_container{
+    
+    
+}
+
+#open_side{
+    left: 0;
+    background: none;
+    font-size: 30px;
+    border: none;
+    margin-left: -1450px;
+    transition: transform 0.4s ease-in-out; 
+
+    
+}
+
+#open_side:focus{
+    transform: rotate(90deg);
+    
+    
+}
+
+#close_window{
+    margin-left: 200px;
+    font-size: 20px;
+    margin-top: 10px;
+    transition: transform 0.4s ease-in-out; 
+
+}
+
+#close_window:hover {
+    color:white;
+    transform: scale(1.05);
+    
+    
+}
+
+.options{
+    display: flex;
+    
+    margin-inline: 35%;
+}
+.format{
+    margin-top: 200px;
+
 }
