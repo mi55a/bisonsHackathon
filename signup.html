@@ -6,7 +6,19 @@
   <title>Sign Up • ProfAI</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .auth-card{max-width:520px;margin:48px auto;padding:24px;border:1px solid #e5e7eb;border-radius:12px}
+    html {
+  overflow-y: scroll;
+   }
+    .auth-card{
+      
+      max-width:420px;
+      margin:48px auto;
+      padding:24px;
+      border:1px solid #e5e7eb;
+      border-radius:12px;
+      
+    }
+    
     .brand{font-size:28px;font-weight:700;text-align:center;margin:0 0 4px}
     .sub{font-size:16px;color:#4b5563;text-align:center;margin:0 0 16px}
     .auth-row{margin-bottom:12px;text-align:left}
@@ -16,6 +28,49 @@
     .btn-primary{background:#111;color:#fff}
     .auth-actions{display:grid;gap:16px;margin-top:4px}
     .msg{margin-top:8px;font-size:14px;color:#b00020}
+    
+    .btn-primary{
+      background:#111;
+      color:#fff;
+      transition: transform 0.4s ease-in-out; 
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+    }
+
+    .btn-primary:hover {
+      background:#111;
+      color:#fff;
+      background-color: #87148B;
+      font: black;
+      border: none;
+      transform: scale(1.02) ;
+      
+    }
+    
+    .btn_back{
+      background-color: black;
+      color: white;
+      padding: 10px;
+      width: auto;
+      border: 0px ;
+      border-radius: 10px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      padding-inline: 70px;
+      transition: transform 0.4s ease-in-out;  
+    }
+
+    .btn_back:hover{
+      background:#111;
+      color:#fff;
+      background-color: #87148B;
+      font: black;
+      border: none;
+      transform: scale(1.02) ;
+    }
+
+
+    
   </style>
 </head>
 <body>
@@ -42,6 +97,11 @@
       </form>
 
       <button class="btn btn-primary" type="button" onclick="location.href='login.html'">Log In</button>
+      
+      <button class="btn btn-primary" type="button" onclick="location.href='signup.html'">Create Account</button>
+      <a href="index.html">
+        <button  class="btn_back">Go Back</button>
+      </a>
     </div>
   </div>
 
