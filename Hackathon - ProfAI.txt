@@ -1,0 +1,11 @@
+Prof AI Lessons
+
+Unit 1: What is AI?
+	1. Explain what artificial intellegence and machine learning are, and describe the basics of how it works. List some use cases for AI.
+	2. Explain and describe different types of machine learning (Supervised, unsupervised, reinforcement, and neural networks).
+	2b. Explore Machine learning types using simulator websites like https://simulators.yobee.co.in/
+	3. Explain what LLMS are, the basics of how they work and list some major examples (chatGPT, Gemini, Deepseek)
+
+Unit 2: Using Basic LLMS and making API Calls
+	1. Explain the basics for making ai API calls, practice creating basic API Requests.
+	2. make a mini project sending API requests to a model in Python.
