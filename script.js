@@ -3,6 +3,7 @@ document.getElementById("userInput").addEventListener("keypress", function (e) {
     if (e.key === "Enter") sendMessage();
 });
 
+
 async function sendMessage() {
     const inputField = document.getElementById("userInput");
     const message = inputField.value.trim();
