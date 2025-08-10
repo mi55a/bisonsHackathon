@@ -46,8 +46,8 @@ body a:hover{
 
 #nav_container{
     transition: 0.5s;
-    
-    
+    margin-inline: -80px;
+    margin-right:200px;    
 }
 
 #open_side{
@@ -119,3 +119,39 @@ body a:hover{
     background: linear-gradient(90deg,rgba(76, 148, 223, 1) 0%, rgba(135, 20, 139, 1) 91%);
     
 }
+
+#userInput{
+    padding: 10px;
+    border-radius: 10px;
+    width: 75%;
+    border: none;
+
+}
+#userInput:focus { 
+    border: none;
+
+}
+#chatInput{
+    margin-top: 300px;
+}
+
+#userInput::placeholder{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+#sendBtn{
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out; 
+
+}
+
+#sendBtn:hover{
+    padding: 10px;
+    border-radius: 10px;
+    transform: scale(1.05);
+    
+
+}
+
