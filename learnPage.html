@@ -35,15 +35,6 @@
             <h1>[Topic Here]</h1>
             <h3>[Lesson Text]</h3>
             <h3>Rate lesson</h3>
-            <a>
-                <button type="button">Ask for Clarification</button>
-            </a>
-            <a>
-                <button type="button">Mark as Confusing</button>
-            </a>
-            <a>
-                <button type="button">Understood</button>
-            </a>
 
             <div id="chatMessages" class="chat-messages"></div>
             <div id="chatInput" class="chat-input">
@@ -55,10 +46,8 @@
         </div>
     </div>
 
-    <script src="script.js">
-    
-
     <script>
+    
     const u = localStorage.getItem('profai_username');
     if (!u) location.href = 'login.html';
     else document.getElementById('username').textContent = u;
@@ -79,5 +68,6 @@
 
     
   </script>
+  <script src = script.js></script>
 </body>
 </html>

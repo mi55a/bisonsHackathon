@@ -81,26 +81,27 @@ function formatLesson(raw) {
     // escape HTML
     const esc = (s) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
     const lines = (raw || "").split(/\r?\n/);
-
+  
     let html = [];
     let inList = false;
-
+  
     for (let line of lines) {
       line = line.trim();
       if (!line) { continue; }
-
-      // bold text
-      const withBold = esc(line).replace(/**(.+?)**/g, "<strong>$1</strong>");
-
+  
+      // bold **text**
+      const withBold = esc(line).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  
       if (line.startsWith("* ")) {
         if (!inList) { html.push("<ul>"); inList = true; }
-        html.push(<li>${withBold.slice(2)}</li>);
+        html.push(`<li>${withBold.slice(2)}</li>`);
       } else {
         if (inList) { html.push("</ul>"); inList = false; }
-        html.push(<p>${withBold}</p>);
+        html.push(`<p>${withBold}</p>`);
       }
     }
     if (inList) html.push("</ul>");
-
+  
     return html.join("");
 }
+  
