@@ -21,12 +21,14 @@ def handle_options():
 CURRICULUM = {
     "u1": """Unit 1: What is AI?
 Goals:
+[Explain the goals in plaintext with no specaial formatting, seperate the different prompts by number]
 1) Explain what artificial intelligence (AI) and machine learning (ML) are, basics of how they work; list AI use cases.
 2) Describe ML types: supervised, unsupervised, reinforcement learning; and neural networks at a high level.
-2b) Encourage exploring ML types with simulators like https://simulators.yobee.co.in/
 3) Explain large language models (LLMs), basics of how they work, and examples: ChatGPT, Gemini, DeepSeek.""",
+
     "u2": """Unit 2: Using Basic LLMs and Making API Calls
 Goals:
+[Explain the goals in plaintext with no specaial formatting, seperate the different prompts by number]
 1) Explain basics of making AI API calls; practice building simple requests.
 2) Mini project: send requests to a model from Python (e.g., POST JSON to an endpoint and print the reply)."""
 }
