@@ -1,4 +1,4 @@
-# bisonsHackathon
+# ProfAI
 Github repository for the Hack-Nation AI Hackathon 2025
 
 Project Report: 
